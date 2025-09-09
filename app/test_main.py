@@ -16,7 +16,8 @@ from app.main import get_coin_combination
         (99, [4, 0, 2, 3]),
     ],
 )
-def test_get_coin_combination_examples(cents: int, expected: list[int]) -> None:
+def test_get_coin_combination_examples(cents: int,
+                                       expected: list[int]) -> None:
     assert get_coin_combination(cents) == expected
 
 
@@ -30,6 +31,7 @@ def test_get_coin_combination_large_numbers(cents: int) -> None:
             smaller = result.copy()
             smaller[i] -= 1
             new_total = (
-                smaller[0] * 1 + smaller[1] * 5 + smaller[2] * 10 + smaller[3] * 25
+                smaller[0] * 1 + smaller[1] * 5
+                + smaller[2] * 10 + smaller[3] * 25
             )
             assert new_total != cents
